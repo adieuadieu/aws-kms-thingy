@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2015", "esnext"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "pretty": true,
+    "removeComments": true,
+    "rootDir": ".",
+    "skipLibCheck": false,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "target": "es2015"
+  },
+  "exclude": ["node_modules", "dist"]
+}
