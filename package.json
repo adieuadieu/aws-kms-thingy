@@ -1,13 +1,25 @@
 {
   "name": "aws-kms-thingy",
   "version": "1.0.0",
+  "description":
+    "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
+  "keywords": [
+    "aws",
+    "kms",
+    "encrypt",
+    "decrypt",
+    "helper",
+    "utility",
+    "cli",
+    "command"
+  ],
   "main": "index.js",
   "repository": "git@github.com:adieuadieu/aws-kms-thingy.git",
-  "author": "Marco Lüthy <marco@luethy.net>",
+  "author": "Marco Lüthy <marco.luethy@gmail.com> (https://github.com/adieuadieu)",
   "license": "MIT",
   "devDependencies": {
-    "tslint": "^5.9.1",
-    "tslint-functional-preset": "^1.0.0",
-    "typescript": "^2.7.2"
+    "tslint": "5.9.1",
+    "tslint-functional-preset": "1.0.0",
+    "typescript": "2.7.2"
   }
 }
