@@ -1,10 +1,16 @@
+import kmsDecrypt from './decrypt'
+import kmsEncrypt from './encrypt'
 
-export default async function decrypt(
-  ciphertext: string | ReadonlyArray<string>
-): Promise<string | ReadonlyArray<string>> {
-  if (typeof ciphertext === 'string') {
-    return kmsDecrypt(ciphertext)
-  }
+type Action = (
+  textOrCiphertext: string | ReadonlyArray<string>,
+) => Promise<string | ReadonlyArray<string>>
 
-  return Promise.all(ciphertext.map(kmsDecrypt))
-}
+type ActionFunction = (text: string) => Promise<string>
+
+const partial = (fn: ActionFunction): Action => textOrCiphertext =>
+  typeof textOrCiphertext === 'string'
+    ? fn(textOrCiphertext)
+    : Promise.all(textOrCiphertext.map(fn))
+
+export const encrypt = partial(kmsEncrypt)
+export const decrypt = partial(kmsDecrypt)

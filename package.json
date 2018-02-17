@@ -1,8 +1,7 @@
 {
   "name": "aws-kms-thingy",
-  "version": "1.0.0",
-  "description":
-    "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
+  "version": "1.0.0-0",
+  "description": "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
   "keywords": [
     "aws",
     "kms",
@@ -13,13 +12,104 @@
     "cli",
     "command"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "akt": "dist/cli.js",
+    "aws-kms-thingy": "dist/cli.js"
+  },
   "repository": "git@github.com:adieuadieu/aws-kms-thingy.git",
   "author": "Marco Lüthy <marco.luethy@gmail.com> (https://github.com/adieuadieu)",
   "license": "MIT",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc -d",
+    "clean": "rm -Rf dist",
+    "dev": "tsc -w",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write",
+    "test": "jest",
+    "watch:test": "jest --watch",
+    "lint": "yarn lint:tsc && yarn lint:tslint",
+    "lint:tslint": "tslint -p tsconfig.json -t stylish",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit --pretty",
+    "preversion": "git pull && yarn check --integrity && yarn security-check && yarn lint && yarn test",
+    "postversion": "git push --tags origin HEAD",
+    "_prepublishOnly": "npm run lint && npm test && npm run security-check && npm run build",
+    "security-check": "nsp check",
+    "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
+  },
+  "dependencies": {
+    "aws-sdk": "2.197.0"
+  },
   "devDependencies": {
+    "@types/aws-lambda": "0.0.31",
+    "@types/jest": "22.1.1",
+    "@types/node": "9.4.0",
+    "husky": "0.14.3",
+    "jest": "22.1.4",
+    "lint-staged": "6.1.0",
+    "nsp": "3.1.0",
+    "prettier": "1.10.2",
+    "ts-jest": "22.0.3",
     "tslint": "5.9.1",
     "tslint-functional-preset": "1.0.0",
     "typescript": "2.7.2"
+  },
+  "peerDependencies": {
+    "aws-sdk": ">= 2.197.0"    
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn prettier",
+      "yarn lint:tslint",
+      "yarn lint:tsc",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "jest": {
+    "bail": false,
+    "collectCoverage": true,
+    "mapCoverage": true,
+    "roots": [
+      "src/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/src/test/"
+    ]
   }
 }
