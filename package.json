@@ -12,6 +12,9 @@
     "cli",
     "command"
   ],
+  "engines": {
+    "node": ">= 6.10"
+  },
   "main": "dist/index.js",
   "module": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
@@ -39,7 +42,7 @@
     "lint:tsc": "tsc -p tsconfig.json --noEmit --pretty",
     "preversion": "git pull && yarn check --integrity && yarn security-check && yarn lint && yarn test",
     "postversion": "git push --tags origin HEAD",
-    "_prepublishOnly": "npm run lint && npm test && npm run security-check && npm run build",
+    "prepublishOnly": "npm run lint && npm test && npm run security-check && npm run build",
     "security-check": "nsp check",
     "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
   },
@@ -50,6 +53,7 @@
     "@types/aws-lambda": "0.0.31",
     "@types/jest": "22.1.1",
     "@types/node": "9.4.0",
+    "aws-sdk-mock": "^1.7.0",
     "husky": "0.14.3",
     "jest": "22.1.4",
     "lint-staged": "6.1.0",
@@ -61,7 +65,7 @@
     "typescript": "2.7.2"
   },
   "peerDependencies": {
-    "aws-sdk": ">= 2.197.0"    
+    "aws-sdk": ">= 2.197.0"
   },
   "prettier": {
     "printWidth": 80,
@@ -89,15 +93,14 @@
     "roots": [
       "src/"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setup.ts",
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "\\.test\\.ts$",
     "moduleFileExtensions": [
       "ts",
-      "tsx",
-      "js",
-      "json"
+      "js"
     ],
     "coverageThreshold": {
       "global": {
@@ -109,7 +112,7 @@
     },
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/src/test/"
+      "/test/"
     ]
   }
 }

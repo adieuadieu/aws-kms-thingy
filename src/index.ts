@@ -5,9 +5,9 @@ type Action = (
   textOrCiphertext: string | ReadonlyArray<string>,
 ) => Promise<string | ReadonlyArray<string>>
 
-type ActionFunction = (text: string) => Promise<string>
+type KmsAction = (text: string) => Promise<string>
 
-const partial = (fn: ActionFunction): Action => textOrCiphertext =>
+const partial = (fn: KmsAction): Action => textOrCiphertext =>
   typeof textOrCiphertext === 'string'
     ? fn(textOrCiphertext)
     : Promise.all(textOrCiphertext.map(fn))
