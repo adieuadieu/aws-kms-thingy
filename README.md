@@ -86,14 +86,16 @@ const [
 
 ### Locally In Development
 
-Providing a non-base64 value will skip en/decrypting with AWS KMS and just return the same value:
+Providing a non-base64 encoded value will skip en/decrypting with AWS KMS and just return the same value. This is useful in local development where you may not be necessary to have your secrets encrypted. This helps to avoid the need to write development environment exception code:
 
 ```typescript
 import { decrypt } from 'aws-kms-thingy'
 
-const token = await decrypt('foobar')
+process.env.DATABASE_PASSWORD = 'foobar'
 
-console.log(token) // "foobar"
+const dbPassword = await decrypt(process.env.DATABASE_PASSWORD)
+
+console.log(dbPassword) // "foobar"
 ```
 
 Alternatively, one can also disable en/decryption entirely with `DISABLE_AWS_KMS_THINGY` environment variable:
