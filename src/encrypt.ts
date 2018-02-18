@@ -27,10 +27,10 @@ async function encrypt({
 export default ({
   plaintext,
   keyId,
-}: InterfaceEncryptParameters): Promise<string> =>
-  // we shouldn't encrypt?
-  (process.env.DISABLE_AWS_KMS_THINGY && plaintext) ||
-  // previously encrypted and in cache?
-  dictionary.get(keyId + plaintext) ||
-  // encrypt it
-  encrypt({ plaintext, keyId })
+}: InterfaceEncryptParameters): Promise<string> | string =>
+  process.env.DISABLE_AWS_KMS_THINGY // we shouldn't encrypt?
+    ? plaintext
+    : // previously encrypted and in cache?
+      dictionary.get(keyId + plaintext) ||
+      // encrypt it
+      encrypt({ plaintext, keyId })
