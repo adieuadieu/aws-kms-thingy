@@ -1,6 +1,6 @@
 {
   "name": "aws-kms-thingy",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
   "keywords": [
     "aws",
@@ -25,7 +25,7 @@
     "dist/lib.cjs.js",
     "dist/lib.es.js",
     "dist/cli.js",
-    "dist/src/index.d.ts"    
+    "dist/src/index.d.ts"
   ],
   "bin": {
     "akt": "dist/cli.js",
@@ -66,6 +66,7 @@
     "nsp": "3.1.0",
     "prettier": "1.10.2",
     "rollup": "^0.56.1",
+    "rollup-plugin-hashbang": "^1.0.1",
     "rollup-plugin-node-resolve": "^3.0.3",
     "ts-jest": "22.0.3",
     "tslint": "5.9.1",

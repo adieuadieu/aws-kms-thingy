@@ -1,18 +1,16 @@
+import hashbang from 'rollup-plugin-hashbang'
 import resolve from 'rollup-plugin-node-resolve'
-// import commonjs from 'rollup-plugin-commonjs'
 
 const external = ['aws-sdk', 'readline']
 
 const plugins = [
+  hashbang(),
   resolve({
-    extensions: ['.js'], // Default: ['.js']
-    jsnext: true, // Default: false
-    main: true, // Default: true
-    module: true, // Default: true
+    extensions: ['.js'],
+    jsnext: true,
+    main: true,
+    module: true,
   }),
-  // commonjs({
-  //   include: 'node_modules/**',
-  // }),
 ]
 
 export default [

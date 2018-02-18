@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 // tslint:disable no-console
 import * as readline from 'readline'
 import * as lib from './'
