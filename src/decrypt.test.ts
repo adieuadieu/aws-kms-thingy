@@ -36,15 +36,15 @@ describe('decrypt()', () => {
     expect(result).toBe(mockError)
   })
 
-  it('should return value as is if DISABLE_KMS_DECRYPTION is set', async () => {
+  it('should return value as is if DISABLE_AWS_KMS_THINGY is set', async () => {
     // tslint:disable-next-line no-object-mutation
-    process.env.DISABLE_KMS_DECRYPTION = 'true'
+    process.env.DISABLE_AWS_KMS_THINGY = 'true'
 
     const result = await kmsDecrypt(mockEncryptedValue)
 
     expect(result).toBe(mockEncryptedValue)
 
     // tslint:disable-next-line no-object-mutation no-delete
-    delete process.env.DISABLE_KMS_DECRYPTION
+    delete process.env.DISABLE_AWS_KMS_THINGY
   })
 })

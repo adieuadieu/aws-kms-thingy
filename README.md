@@ -86,7 +86,7 @@ const [
 
 ### Locally In Development
 
-Provide a non-base64 value, get back same value.
+Providing a non-base64 value will skip en/decrypting with AWS KMS and just return the same value:
 
 ```typescript
 import { decrypt } from 'aws-kms-thingy'
@@ -96,12 +96,12 @@ const token = await decrypt('foobar')
 console.log(token) // "foobar"
 ```
 
-Disable decryption entirely with `DISABLE_KMS_DECRYPTION` environment variable.
+Alternatively, one can also disable en/decryption entirely with `DISABLE_AWS_KMS_THINGY` environment variable:
 
 ```typescript
 import { decrypt } from 'aws-kms-thingy'
 
-process.env.DISABLE_KMS_DECRYPTION = 'true'
+process.env.DISABLE_AWS_KMS_THINGY = 'true'
 
 const token = await decrypt(
   'aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ETHp4cnpGQ3lPcw==',

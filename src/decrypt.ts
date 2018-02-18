@@ -15,7 +15,7 @@ async function decrypt(ciphertext: string): Promise<string> {
 
 export default (ciphertext: string): Promise<string> =>
   // we shouldn't decrypt?
-  (process.env.DISABLE_KMS_DECRYPTION && ciphertext) ||
+  (process.env.DISABLE_AWS_KMS_THINGY && ciphertext) ||
   // not a base64 encoded ciphertext?
   (!isBase64.test(ciphertext) && ciphertext) ||
   // previously decrypted and in cache?
