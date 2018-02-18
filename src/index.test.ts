@@ -50,4 +50,11 @@ describe('lib', () => {
 
     expect(result).toEqual(mockArrayOfDecryptedValues)
   })
+
+  it('should be able to handle undefined parameters', async () => {
+    // @ts-ignore
+    const result = await decrypt(undefined)
+
+    expect(result).toBe(undefined)
+  })
 })
