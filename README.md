@@ -18,10 +18,11 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 
 ### Features
 
-* unencrypted strings simply returned, useful for testing/local development
-* encrypt/decrypt multiple values in one go
-* results are cached, so multiple decrypt/encrypt calls incur only a single call to the AWS SDK
-* well tested
+* Unencrypted strings simply returned, useful for testing/local development
+* Encrypt/decrypt multiple values in one go
+* Results are cached, so multiple decrypt/encrypt calls incur only a single call to the AWS SDK
+* CLI to encrypt/decrypt secrets
+* Well tested
 
 ## Usage
 
@@ -105,11 +106,9 @@ import { decrypt } from 'aws-kms-thingy'
 
 process.env.DISABLE_AWS_KMS_THINGY = 'true'
 
-const token = await decrypt(
-  'aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ETHp4cnpGQ3lPcw==',
-)
+const token = await decrypt('aHR0cDovL2JpdC5seS8xVHFjd243')
 
-console.log(token) // "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ETHp4cnpGQ3lPcw=="
+console.log(token) // "aHR0cDovL2JpdC5seS8xVHFjd243"
 ```
 
 ## Related Thingies
