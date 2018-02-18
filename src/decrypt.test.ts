@@ -1,5 +1,5 @@
 // tslint:disable no-expression-statement
-import kmsDecrypt, { decryptedDictionary } from './decrypt'
+import kmsDecrypt, { dictionary } from './decrypt'
 
 const mockDecryptedValue = 'foobar'
 const mockEncryptedValue = Buffer.from(mockDecryptedValue).toString('base64')
@@ -9,21 +9,21 @@ describe('decrypt()', () => {
     const result = await kmsDecrypt(mockEncryptedValue)
 
     expect(result).toBe(mockDecryptedValue)
-    expect(decryptedDictionary.get(mockEncryptedValue)).toBe(mockDecryptedValue)
+    expect(dictionary.get(mockEncryptedValue)).toBe(mockDecryptedValue)
   })
 
   it('should use cache if item exists in cache', async () => {
     const encryptedValue = Buffer.from('foobar').toString('base64')
 
-    decryptedDictionary.clear()
-    decryptedDictionary.set(encryptedValue, 'cached')
+    dictionary.clear()
+    dictionary.set(encryptedValue, 'cached')
 
     const result = await kmsDecrypt(encryptedValue)
 
     expect(result).toBe('cached')
   })
 
-  it('should return value as is if not a base64 encoded secret', async () => {
+  it('should return value as-is if not a base64 encoded secret', async () => {
     const result = await kmsDecrypt(mockDecryptedValue)
 
     expect(result).toBe(mockDecryptedValue)

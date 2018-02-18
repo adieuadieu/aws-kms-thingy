@@ -40,7 +40,7 @@
     "prettier": "prettier --write",
     "test": "jest",
     "watch:test": "jest --watch",
-    "lint": "yarn lint:tsc && yarn lint:tslint",
+    "lint": "npm run lint:tsc && npm run lint:tslint",
     "lint:tslint": "tslint -p tsconfig.json -t stylish",
     "lint:tsc": "tsc -p tsconfig.json --noEmit --pretty",
     "preversion": "git pull && yarn check --integrity && yarn security-check && yarn lint && yarn test",
@@ -80,8 +80,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "yarn prettier",
-      "yarn lint:tslint",
-      "yarn lint:tsc",
+      "yarn lint",
       "git add"
     ],
     "*.{json}": [

@@ -1,16 +1,18 @@
 import { KMS } from 'aws-sdk'
 
 const kms = new KMS()
-export const decryptedDictionary = new Map()
 
 const isBase64 = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/
 
-async function decrypt(ciphertext: string): Promise<string> {
-  const params = { CiphertextBlob: Buffer.from(ciphertext, 'base64') }
-  const result = await kms.decrypt(params).promise()
-  const decrypted = result.Plaintext ? result.Plaintext.toString() : ciphertext
+export const dictionary = new Map()
 
-  return decryptedDictionary.set(ciphertext, decrypted) && decrypted
+async function decrypt(ciphertext: string): Promise<string> {
+  const result = await kms
+    .decrypt({ CiphertextBlob: Buffer.from(ciphertext, 'base64') })
+    .promise()
+  const plaintext = result.Plaintext ? result.Plaintext.toString() : ciphertext
+
+  return dictionary.set(ciphertext, plaintext) && plaintext
 }
 
 export default (ciphertext: string): Promise<string> =>
@@ -19,6 +21,6 @@ export default (ciphertext: string): Promise<string> =>
   // not a base64 encoded ciphertext?
   (!isBase64.test(ciphertext) && ciphertext) ||
   // previously decrypted and in cache?
-  decryptedDictionary.get(ciphertext) ||
+  dictionary.get(ciphertext) ||
   // decrypt it
   decrypt(ciphertext)

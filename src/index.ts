@@ -1,16 +1,16 @@
 import kmsDecrypt from './decrypt'
-import kmsEncrypt from './encrypt'
+import kmsEncrypt, { InterfaceEncryptParameters } from './encrypt'
 
-type Action = (
-  textOrCiphertext: string | ReadonlyArray<string>,
-) => Promise<string | ReadonlyArray<string>>
+export const encrypt = (
+  parameters:
+    | InterfaceEncryptParameters
+    | ReadonlyArray<InterfaceEncryptParameters>,
+) =>
+  'plaintext' in parameters
+    ? kmsEncrypt(parameters)
+    : Promise.all(parameters.map(kmsEncrypt))
 
-type KmsAction = (text: string) => Promise<string>
-
-const partial = (fn: KmsAction): Action => textOrCiphertext =>
-  typeof textOrCiphertext === 'string'
-    ? fn(textOrCiphertext)
-    : Promise.all(textOrCiphertext.map(fn))
-
-export const encrypt = partial(kmsEncrypt)
-export const decrypt = partial(kmsDecrypt)
+export const decrypt = (ciphertext: string | ReadonlyArray<string>) =>
+  typeof ciphertext === 'string'
+    ? kmsDecrypt(ciphertext)
+    : Promise.all(ciphertext.map(kmsDecrypt))
