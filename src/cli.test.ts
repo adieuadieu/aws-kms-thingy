@@ -8,7 +8,6 @@ const argvBase: ReadonlyArray<string> = [
 
 const mockDecryptedValue = 'foobar'
 const mockEncryptedValue = Buffer.from(mockDecryptedValue).toString('base64')
-const keyId = 'foobar-key'
 
 jest.mock('readline', () => ({
   clearLine: jest.fn(),
@@ -38,15 +37,16 @@ describe('cli', () => {
   })
 
   it('should print usage info if no command specified', async () => {
-    process.stdout.columns = undefined
+    process.stdout.columns = undefined // tslint:disable-line no-object-mutation
 
     jest.resetAllMocks()
     jest.resetModules()
     jest.resetModuleRegistry()
 
     const consoleSpy = jest.spyOn(console, 'info')
+    const cli = require('./cli')
 
-    const result = await main()
+    const result = await cli.main()
 
     expect(result).toBe(undefined)
     expect(consoleSpy).toHaveBeenCalled()

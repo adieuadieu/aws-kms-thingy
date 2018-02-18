@@ -1,6 +1,6 @@
 {
   "name": "aws-kms-thingy",
-  "version": "1.0.0-1",
+  "version": "1.0.0-5",
   "description": "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
   "keywords": [
     "aws",
@@ -22,10 +22,7 @@
   "module": "dist/lib.es.js",
   "types": "dist/src/index.d.ts",
   "files": [
-    "dist/lib.cjs.js",
-    "dist/lib.es.js",
-    "dist/cli.js",
-    "dist/src/index.d.ts"
+    "dist"
   ],
   "bin": {
     "akt": "dist/cli.js",
@@ -59,22 +56,22 @@
     "@types/aws-lambda": "0.0.31",
     "@types/jest": "22.1.1",
     "@types/node": "9.4.0",
-    "aws-sdk-mock": "^1.7.0",
+    "aws-sdk-mock": "1.7.0",
     "husky": "0.14.3",
     "jest": "22.1.4",
     "lint-staged": "6.1.0",
     "nsp": "3.1.0",
     "prettier": "1.10.2",
-    "rollup": "^0.56.1",
-    "rollup-plugin-hashbang": "^1.0.1",
-    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup": "0.56.1",
+    "rollup-plugin-hashbang": "1.0.1",
+    "rollup-plugin-node-resolve": "3.0.3",
     "ts-jest": "22.0.3",
     "tslint": "5.9.1",
     "tslint-functional-preset": "1.0.0",
     "typescript": "2.7.2"
   },
   "peerDependencies": {
-    "aws-sdk": ">= 2.197.0"
+    "aws-sdk": ">= 1.197.0"
   },
   "prettier": {
     "printWidth": 80,
