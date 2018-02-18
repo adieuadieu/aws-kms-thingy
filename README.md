@@ -9,9 +9,10 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 
 1. [Features](#features)
 1. [Usage](#usage)
+   1. [With the CLI](#with-the-cli)
    1. [With AWS Lambda](#with-aws-lambda)
    1. [With Multiple Secrets](#with-multiple-secrets)
-   1. [With the CLI](#with-the-cli)
+   1. [Locally In Development](#locally-in-development)
 1. [Related Thingies](#related-thingies)
 1. [License](#license)
 
@@ -20,6 +21,7 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 * unencrypted strings simply returned, useful for testing/local development
 * encrypt/decrypt multiple values in one go
 * results are cached, so multiple decrypt/encrypt calls incur only a single call to the AWS SDK
+* well tested
 
 ## Usage
 
@@ -28,6 +30,24 @@ The module assumes that the Amazon SDK has access to AWS credentials that are ab
 ```bash
 npm install aws-kms-thingy
 ```
+
+### With the CLI
+
+Encrypt with:
+
+```bash
+aws-kms-thingy encrypt
+```
+
+You'll be prompted for the string to encrypt.
+
+Decrypt with:
+
+```bash
+aws-kms-thingy decrypt
+```
+
+You'll be prompted for the encrypted string to decrypt
 
 ### With AWS Lambda
 
@@ -64,23 +84,31 @@ const [
 ])
 ```
 
-### With the CLI
+### Locally In Development
 
-Encrypt with:
+Provide a non-base64 value, get back same value.
 
-```bash
-aws-kms-thingy encrypt
+```typescript
+import { decrypt } from 'aws-kms-thingy'
+
+const token = await decrypt('foobar')
+
+console.log(token) // "foobar"
 ```
 
-You'll be prompted for the string to encrypt.
+Disable decryption entirely with `DISABLE_KMS_DECRYPTION` environment variable.
 
-Decrypt with:
+```typescript
+import { decrypt } from 'aws-kms-thingy'
 
-```bash
-aws-kms-thingy decrypt
+process.env.DISABLE_KMS_DECRYPTION = 'true'
+
+const token = await decrypt(
+  'aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ETHp4cnpGQ3lPcw==',
+)
+
+console.log(token) // "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ETHp4cnpGQ3lPcw=="
 ```
-
-You'll be prompted for the encrypted string to decrypt
 
 ## Related Thingies
 

@@ -5,10 +5,11 @@ const mockDecryptedValue = 'foobar'
 const mockEncryptedValue = Buffer.from(mockDecryptedValue).toString('base64')
 
 describe('decrypt()', () => {
-  it('should decrypt an encrypted string', async () => {
+  it('should decrypt an encrypted string and store it in cache', async () => {
     const result = await kmsDecrypt(mockEncryptedValue)
 
     expect(result).toBe(mockDecryptedValue)
+    expect(decryptedDictionary.get(mockEncryptedValue)).toBe(mockDecryptedValue)
   })
 
   it('should use cache if item exists in cache', async () => {
