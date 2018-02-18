@@ -1,21 +1,24 @@
 import { KMS } from 'aws-sdk'
 
 const kms = new KMS()
-const decryptedDictionary = new Map()
+export const decryptedDictionary = new Map()
+
 const isBase64 = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/
 
-export default async function kmsDecrypt(ciphertext: string): Promise<string> {
-  if (decryptedDictionary.has(ciphertext)) {
-    return decryptedDictionary.get(ciphertext)
-  } else if (!isBase64.test(ciphertext) || process.env.DISABLE_KMS_DECRYPTION) {
-    // useful in development mode.
-    // Pass an unencrypted string, get back the same string.
-    return ciphertext
-  }
-
+async function decrypt(ciphertext: string): Promise<string> {
   const params = { CiphertextBlob: Buffer.from(ciphertext, 'base64') }
   const result = await kms.decrypt(params).promise()
   const decrypted = result.Plaintext ? result.Plaintext.toString() : ciphertext
 
   return decryptedDictionary.set(ciphertext, decrypted) && decrypted
 }
+
+export default (ciphertext: string): Promise<string> =>
+  // we shouldn't decrypt?
+  (process.env.DISABLE_KMS_DECRYPTION && ciphertext) ||
+  // not a base64 encoded ciphertext?
+  (!isBase64.test(ciphertext) && ciphertext) ||
+  // previously decrypted and in cache?
+  decryptedDictionary.get(ciphertext) ||
+  // decrypt it
+  decrypt(ciphertext)

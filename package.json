@@ -10,10 +10,13 @@
     "helper",
     "utility",
     "cli",
-    "command"
+    "command",
+    "secrets",
+    "tool"
   ],
   "engines": {
-    "node": ">= 6.10"
+    "npm": ">= 3.0.0",    
+    "node": ">= 6.10.0"
   },
   "main": "dist/index.js",
   "module": "dist/src/index.js",

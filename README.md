@@ -25,15 +25,19 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 
 The module assumes that the Amazon SDK has access to AWS credentials that are able to access the KMS key used for encryption and decryption.
 
+```bash
+npm install aws-kms-thingy
+```
+
 ### With AWS Lambda
 
 Safe to use within a Lambda handler. After cold-start, decrypted values are cached so subsequent invocations won't incur an AWS KMS API call:
 
 ```javascript
-const { kmsDecrypt } = require('aws-kms-thingy')
+const { decrypt } = require('aws-kms-thingy')
 
 module.exports.myLambdaHandler = (event, context, callback) => {
-  kmsDecrypt(process.env.SOME_API_TOKEN) // Only incurs network call on cold-start
+  decrypt(process.env.SOME_API_TOKEN) // Only incurs network call on cold-start
     .then(doStuffWithDecryptedApiToken)
     .then(resultOrWhatever => callback(null, resultOrWhatever))
     .catch(callback)
@@ -44,12 +48,18 @@ module.exports.myLambdaHandler = (event, context, callback) => {
 
 Decrypt multiple values in parallel
 
-```javascript
-const { kmsDecrypt } = require('aws-kms-thingy')
+```typescript
+import { decrypt } from 'aws-kms-thingy'
 
-const [decryptedApiToken1, decryptedApiToken2, somethingElseSecret] = await kmsDecrypt([
+const [
+  decryptedApiToken1,
+  decryptedApiToken2,
+  decryptedDatabasePassword,
+  somethingElseSecret,
+] = await decrypt([
   process.env.API_TOKEN_1,
   process.env.API_TOKEN_2,
+  process.env.DATABASE_PASSWORD,
   process.env.SOMETHING_ELSE_SECRET,
 ])
 ```
@@ -80,7 +90,7 @@ You'll be prompted for the encrypted string to decrypt
 
 ## License
 
-**aws-kms-thingy** © [Marco Lüthy](https://github.com/adieuadieu), Released under the [MIT](./LICENSE) License.<br>
-Authored and maintained by Marco Lüthy with help from contributors ([list](https://github.com/adieuadieu/aws-kms-thingy/contributors)).
+**aws-kms-thingy** © [Marco Lüthy](https://github.com/adieuadieu). Released under the [MIT](./LICENSE) license.<br>
+Authored and maintained by Marco Lüthy with help from [contributors](https://github.com/adieuadieu/aws-kms-thingy/contributors).
 
-> [github.com/adieuadieu](https://github.com/adieuadieu) · GitHub [@adieuadieu](https://github.com/adieuadieu) · Twitter [@adieuadieu](https://twitter.com/adieuadieu)
+> [github.com/adieuadieu](https://github.com/adieuadieu) · GitHub [@adieuadieu](https://github.com/adieuadieu) · Twitter [@adieuadieu](https://twitter.com/adieuadieu) · Medium [@marco.luethy](https://medium.com/@marco.luethy)
