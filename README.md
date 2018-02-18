@@ -47,7 +47,7 @@ Decrypt with:
 aws-kms-thingy decrypt
 ```
 
-You'll be prompted for the encrypted string to decrypt
+You'll be prompted for the encrypted string to decrypt.
 
 ### With AWS Lambda
 
