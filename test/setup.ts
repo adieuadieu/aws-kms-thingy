@@ -19,9 +19,7 @@ mockAWS.mock(
     return plaintext === 'mockError'
       ? callback(null, {})
       : callback(null, {
-          CiphertextBlob: Buffer.from(
-            Buffer.from(plaintext).toString('base64'),
-          ),
+          CiphertextBlob: Buffer.from(plaintext),
         })
   },
 )

@@ -18,7 +18,7 @@ const mockArrayOfEncryptedValues: ReadonlyArray<string> = [
   Buffer.from(mockArrayOfDecryptedValues[3]).toString('base64'),
 ]
 
-describe('aws-kms-thingy', () => {
+describe('lib', () => {
   it('should encrypt an string', async () => {
     const result = await encrypt({
       keyId: 'foobar-key',

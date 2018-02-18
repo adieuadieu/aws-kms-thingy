@@ -16,8 +16,9 @@ async function encrypt({
   const result = await kms
     .encrypt({ KeyId: keyId, Plaintext: plaintext })
     .promise()
+
   const ciphertext = result.CiphertextBlob
-    ? result.CiphertextBlob.toString()
+    ? (result.CiphertextBlob as Buffer).toString('base64')
     : plaintext
 
   return dictionary.set(plaintext, ciphertext) && ciphertext
