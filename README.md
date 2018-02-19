@@ -13,6 +13,7 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
    1. [With AWS Lambda](#with-aws-lambda)
    1. [With Multiple Secrets](#with-multiple-secrets)
    1. [Locally In Development](#locally-in-development)
+1. [API](#api)
 1. [Related Thingies](#related-thingies)
 1. [License](#license)
 
@@ -109,6 +110,62 @@ process.env.DISABLE_AWS_KMS_THINGY = 'true'
 const token = await decrypt('aHR0cDovL2JpdC5seS8xVHFjd243')
 
 console.log(token) // "aHR0cDovL2JpdC5seS8xVHFjd243"
+```
+
+## API
+
+**Methods**
+
+* [`encrypt(parameters)`](#api-encrypt)
+* [`decrypt(ciphertext)`](#api-decrypt)
+
+---
+
+<a name="api-encrypt" />
+
+### encrypt(parameters)
+
+```typescript
+interface InterfaceEncryptParameters {
+  readonly plaintext: string
+  readonly keyId: string
+}
+
+async function encrypt(
+  parameters:
+    | InterfaceEncryptParameters
+    | ReadonlyArray<InterfaceEncryptParameters>,
+): Promise<string | ReadonlyArray<string>>
+```
+
+Encrypt a plaintext string. Requires a AWS KMS key ID (or key Arn).
+
+```js
+const ciphertext = await encrypt({
+  plaintext: 'secret text',
+  keyId:
+    'arn:aws:kms:eu-west-1:000000000000:key/55kkmm11-aann-99ff-mmaa-3322115566hh',
+})
+```
+
+---
+
+<a name="api-decrypt" />
+
+### decrypt(ciphertext)
+
+AWS KMS encrypted ciphertext contains metadata so it is not necessary to provide context or key ID.
+
+```typescript
+async function decrypt(
+  ciphertext: undefined | string | ReadonlyArray<string>,
+): Promise<undefined | string | ReadonlyArray<string>>
+```
+
+Decrypt KMS-encrypted ciphertext.
+
+```js
+const plaintext = await decrypt('aHR0cDovL2JpdC5seS8xVHFjd243')
 ```
 
 ## Related Thingies
