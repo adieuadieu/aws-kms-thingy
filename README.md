@@ -100,6 +100,16 @@ const dbPassword = await decrypt(process.env.DATABASE_PASSWORD)
 console.log(dbPassword) // "foobar"
 ```
 
+An `undefined` value is also OK. This does nothing and returns undefined. Useful when environment variables are unset in local development.
+
+```typescript
+process.env.DATABASE_PASSWORD = undefined // e.g. not set in development
+
+const dbPassword = await decrypt(process.env.DATABASE_PASSWORD)
+
+console.log(dbPassword) // undefined
+```
+
 Alternatively, one can also disable en/decryption entirely with `DISABLE_AWS_KMS_THINGY` environment variable:
 
 ```typescript
