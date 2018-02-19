@@ -30,9 +30,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}              
       - run:
           name: Lint
-          command: |
-            npm run lint &&
-            ./node_modules/.bin/nyc report --temp-directory=coverage --reporter=text-lcov | ./node_modules/.bin/coveralls
+          command: npm run lint
 
   # runs the unit tests
   unit-test:
@@ -44,8 +42,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run: 
           name: Unit tests
-          command: npm run test
-
+          command: |
+            npm run test &&
+            ./node_modules/.bin/nyc report --temp-directory=coverage --reporter=text-lcov | ./node_modules/.bin/coveralls
 #
 # Workflows
 #
