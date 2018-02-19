@@ -32,7 +32,7 @@ jobs:
           name: Lint
           command: |
             npm run lint &&
-            nyc report --temp-directory=coverage --reporter=text-lcov | coveralls
+            ./node_modules/.bin/nyc report --temp-directory=coverage --reporter=text-lcov | ./node_modules/.bin/coveralls
 
   # runs the unit tests
   unit-test:
