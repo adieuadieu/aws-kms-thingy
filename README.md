@@ -3,6 +3,9 @@
 Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting secrets with the AWS KMS service. Suitable for use with AWS Lambda.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/adieuadieu/aws-kms-thingy/master.svg?style=flat-square)](https://circleci.com/gh/adieuadieu/aws-kms-thingy)
+[![Coveralls](https://img.shields.io/coveralls/adieuadieu/aws-kms-thingy/master.svg?style=flat-square)](https://coveralls.io/github/adieuadieu/aws-kms-thingy)
+[![David](https://img.shields.io/david/adieuadieu/aws-kms-thingy.svg?style=flat-square)]()
+[![David](https://img.shields.io/david/dev/adieuadieu/aws-kms-thingy.svg?style=flat-square)]()
 [![GitHub release](https://img.shields.io/github/release/adieuadieu/aws-kms-thingy.svg?style=flat-square)](https://github.com/adieuadieu/aws-kms-thingy)
 
 ## Contents

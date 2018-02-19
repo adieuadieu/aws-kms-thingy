@@ -30,7 +30,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}              
       - run:
           name: Lint
-          command: npm run lint
+          command: |
+            npm run lint &&
+            nyc report --temp-directory=coverage --reporter=text-lcov | coveralls
 
   # runs the unit tests
   unit-test:
