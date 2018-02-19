@@ -19,7 +19,7 @@ export default (ciphertext: string): Promise<string> | string =>
   ciphertext.length === 0 || // empty string?
   process.env.DISABLE_AWS_KMS_THINGY || // we shouldn't decrypt?
   !isBase64.test(ciphertext) // not a base64 encoded ciphertext?
-    ? ciphertext
+    ? String(ciphertext)
     : // previously decrypted and in cache?
       dictionary.get(ciphertext) ||
       // decrypt it

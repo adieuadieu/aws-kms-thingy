@@ -11,7 +11,7 @@ export const encrypt = async (
     : Promise.all(parameters.map(kmsEncrypt))
 
 export const decrypt = async (
-  ciphertext: string | ReadonlyArray<string>,
+  ciphertext: undefined | string | ReadonlyArray<string>,
 ): Promise<undefined | string | ReadonlyArray<string>> =>
   typeof ciphertext === 'undefined'
     ? undefined // useful in development when process.env.SECRET may be unset

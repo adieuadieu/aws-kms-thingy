@@ -29,7 +29,7 @@ export default ({
   keyId,
 }: InterfaceEncryptParameters): Promise<string> | string =>
   process.env.DISABLE_AWS_KMS_THINGY // we shouldn't encrypt?
-    ? plaintext
+    ? String(plaintext)
     : // previously encrypted and in cache?
       dictionary.get(keyId + plaintext) ||
       // encrypt it
