@@ -50,26 +50,26 @@
     "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
   },
   "dependencies": {
-    "aws-sdk": "2.205.0"
+    "aws-sdk": "2.197.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "0.0.33",
-    "@types/jest": "22.1.4",
-    "@types/node": "9.4.6",
+    "@types/aws-lambda": "0.0.31",
+    "@types/jest": "22.1.1",
+    "@types/node": "9.4.0",
     "aws-sdk-mock": "1.7.0",
     "coveralls": "^3.0.0",
     "husky": "0.14.3",
-    "jest": "22.4.2",
-    "lint-staged": "7.0.0",
-    "nsp": "3.2.1",
+    "jest": "22.1.4",
+    "lint-staged": "6.1.0",
+    "nsp": "3.1.0",
     "nyc": "^11.4.1",
-    "prettier": "1.11.1",
-    "rollup": "0.56.3",
+    "prettier": "1.10.2",
+    "rollup": "0.56.1",
     "rollup-plugin-hashbang": "1.0.1",
     "rollup-plugin-node-resolve": "3.0.3",
-    "ts-jest": "22.4.1",
+    "ts-jest": "22.0.3",
     "tslint": "5.9.1",
-    "tslint-functional-preset": "1.0.1",
+    "tslint-functional-preset": "1.0.0",
     "typescript": "2.7.2"
   },
   "peerDependencies": {
@@ -96,7 +96,6 @@
   "jest": {
     "bail": false,
     "collectCoverage": true,
-    "mapCoverage": true,
     "roots": [
       "src/"
     ],
