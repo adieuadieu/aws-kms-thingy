@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@types/aws-lambda@0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-0.0.31.tgz#174d763bd801bc9106eaf40263fd78d8c300d950"
+"@types/aws-lambda@0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-0.0.33.tgz#17083d9c569048792f4f33ef6cd6aaf54d5b22d3"
 
 "@types/jest@22.1.1":
   version "22.1.1"
