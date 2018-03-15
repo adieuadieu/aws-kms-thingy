@@ -20,9 +20,9 @@
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-0.0.33.tgz#17083d9c569048792f4f33ef6cd6aaf54d5b22d3"
 
-"@types/jest@22.1.1":
-  version "22.1.1"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.1.1.tgz#231d7c60ed130200af9e96c82469ed25b59a7ea2"
+"@types/jest@22.2.0":
+  version "22.2.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.0.tgz#55ce83139f7ad1b48b414c3927746614c6963c0f"
 
 "@types/node@9.4.0":
   version "9.4.0"
