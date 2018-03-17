@@ -73,7 +73,7 @@
     "typescript": "2.7.2"
   },
   "peerDependencies": {
-    "aws-sdk": ">= 1.197.0"
+    "aws-sdk": ">= 2.197.0"
   },
   "prettier": {
     "printWidth": 80,
