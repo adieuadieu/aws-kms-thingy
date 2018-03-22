@@ -22,9 +22,9 @@
   dependencies:
     "@types/estree" "*"
 
-"@types/aws-lambda@0.0.33":
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-0.0.33.tgz#17083d9c569048792f4f33ef6cd6aaf54d5b22d3"
+"@types/aws-lambda@0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-0.0.34.tgz#dd6abb59a52dd2b674e9dd8e37de3485ea9cba7d"
 
 "@types/estree@*", "@types/estree@0.0.38":
   version "0.0.38"
