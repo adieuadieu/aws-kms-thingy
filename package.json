@@ -28,9 +28,16 @@
     "akt": "dist/cli.js",
     "aws-kms-thingy": "dist/cli.js"
   },
-  "repository": "git@github.com:adieuadieu/aws-kms-thingy.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adieuadieu/aws-kms-thingy.git"
+  },
   "author": "Marco Lüthy <marco.luethy@gmail.com> (https://github.com/adieuadieu)",
   "license": "MIT",
+   "bugs": {
+    "url": "https://github.com/adieuadieu/aws-kms-thingy/issues"
+  },
+  "homepage": "https://github.com/adieuadieu/aws-kms-thingy",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc -d && rollup -c",
