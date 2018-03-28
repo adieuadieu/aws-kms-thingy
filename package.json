@@ -1,6 +1,6 @@
 {
   "name": "aws-kms-thingy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
   "keywords": [
     "aws",
@@ -34,7 +34,7 @@
   },
   "author": "Marco Lüthy <marco.luethy@gmail.com> (https://github.com/adieuadieu)",
   "license": "MIT",
-   "bugs": {
+  "bugs": {
     "url": "https://github.com/adieuadieu/aws-kms-thingy/issues"
   },
   "homepage": "https://github.com/adieuadieu/aws-kms-thingy",
