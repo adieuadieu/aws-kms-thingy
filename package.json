@@ -62,7 +62,7 @@
   "devDependencies": {
     "@types/aws-lambda": "0.0.34",
     "@types/jest": "22.2.2",
-    "@types/node": "9.6.0",
+    "@types/node": "9.6.1",
     "aws-sdk-mock": "1.7.0",
     "coveralls": "3.0.0",
     "husky": "0.14.3",
