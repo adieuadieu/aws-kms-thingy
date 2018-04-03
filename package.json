@@ -57,7 +57,7 @@
     "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
   },
   "dependencies": {
-    "aws-sdk": "2.216.1"
+    "aws-sdk": "2.219.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "0.0.34",
