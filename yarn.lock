@@ -274,9 +274,9 @@ aws-sdk-mock@1.7.0:
     sinon "^1.17.3"
     traverse "^0.6.6"
 
-aws-sdk@2.219.1:
-  version "2.219.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.219.1.tgz#d2d9705726ffd32661632e781e90bfaafd3c1693"
+aws-sdk@2.220.1:
+  version "2.220.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.220.1.tgz#7b56a253309c1f741693b3cba639310dcea22240"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
