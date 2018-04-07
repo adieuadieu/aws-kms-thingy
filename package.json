@@ -1,6 +1,6 @@
 {
   "name": "aws-kms-thingy",
-  "version": "1.0.4",
+  "version": "0.0.0",
   "description": "A wrapper/helper utility for encrypting/decrypting with AWS KMS",
   "keywords": [
     "aws",

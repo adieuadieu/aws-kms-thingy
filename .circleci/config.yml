@@ -56,7 +56,6 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
-      - run: npm run prepublishOnly
       - run: npm run semantic-release
 
 #
@@ -66,7 +65,7 @@ jobs:
 workflows:
   version: 2
 
-  build_lint_test:
+  build_test_release:
     jobs:
       - build
       - lint:     
