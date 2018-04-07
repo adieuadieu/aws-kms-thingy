@@ -29,8 +29,11 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}              
       - run:
+          name: Security check
+          command: npm run security-check
+      - run:
           name: Lint
-          command: npm run lint
+          command: npm run lint          
 
   # runs the unit tests
   unit-test:
@@ -48,7 +51,7 @@ jobs:
 
   release:
     docker:
-      - image: circleci/node:6@sha256:635b022773f0346704312a36d1ce4628e0676a8a2b04e76c15888b67deaeb182
+      - image: circleci/node:8
     steps:
       - checkout
       - restore_cache:
