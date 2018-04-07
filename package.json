@@ -54,12 +54,16 @@
     "postversion": "git push --tags origin HEAD",
     "prepublishOnly": "npm run lint && npm test && npm run security-check && npm run build",
     "security-check": "nsp check",
-    "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
+    "upgrade-dependencies": "yarn upgrade-interactive --latest --exact",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "aws-sdk": "2.221.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "6.1.3",
+    "@commitlint/config-conventional": "6.1.3",
     "@types/aws-lambda": "0.0.34",
     "@types/jest": "22.2.2",
     "@types/node": "9.6.2",
@@ -74,6 +78,7 @@
     "rollup": "0.57.1",
     "rollup-plugin-hashbang": "1.0.1",
     "rollup-plugin-node-resolve": "3.3.0",
+    "semantic-release": "15.1.5",
     "ts-jest": "22.4.2",
     "tslint": "5.9.1",
     "tslint-functional-preset": "1.0.2",
@@ -81,6 +86,11 @@
   },
   "peerDependencies": {
     "aws-sdk": ">= 2.197.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "prettier": {
     "printWidth": 80,
