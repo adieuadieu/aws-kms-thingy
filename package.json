@@ -58,9 +58,7 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "semantic-release": "semantic-release"
   },
-  "dependencies": {
-    "aws-sdk": "2.223.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "6.1.3",
     "@commitlint/config-conventional": "6.1.3",
@@ -85,7 +83,7 @@
     "typescript": "2.8.1"
   },
   "peerDependencies": {
-    "aws-sdk": ">= 2.197.0"
+    "aws-sdk": "^2.197.0"
   },
   "commitlint": {
     "extends": [

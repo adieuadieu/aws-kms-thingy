@@ -10,15 +10,15 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 
 ## Contents
 
-1. [Features](#features)
-1. [Usage](#usage)
-   1. [With the CLI](#with-the-cli)
-   1. [With AWS Lambda](#with-aws-lambda)
-   1. [With Multiple Secrets](#with-multiple-secrets)
-   1. [Locally In Development](#locally-in-development)
-1. [API](#api)
-1. [Related Thingies](#related-thingies)
-1. [License](#license)
+1.  [Features](#features)
+1.  [Usage](#usage)
+    1.  [With the CLI](#with-the-cli)
+    1.  [With AWS Lambda](#with-aws-lambda)
+    1.  [With Multiple Secrets](#with-multiple-secrets)
+    1.  [Locally In Development](#locally-in-development)
+1.  [API](#api)
+1.  [Related Thingies](#related-thingies)
+1.  [License](#license)
 
 ### Features
 
@@ -33,7 +33,7 @@ Convenience wrapper around the AWS Node.js SDK to simplify encrypting/decrypting
 The module assumes that the Amazon SDK has access to AWS credentials that are able to access the KMS key used for encryption and decryption.
 
 ```bash
-npm install aws-kms-thingy
+npm install aws-kms-thingy aws-sdk@^2
 ```
 
 ### With the CLI
