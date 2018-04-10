@@ -1,4 +1,4 @@
-import { KMS } from 'aws-sdk'
+import { KMS } from 'aws-sdk' // tslint:disable-line:no-implicit-dependencies
 
 const kms = new KMS()
 
