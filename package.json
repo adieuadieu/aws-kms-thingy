@@ -65,7 +65,7 @@
     "@types/aws-lambda": "8.10.6",
     "@types/jest": "23.1.0",
     "@types/node": "9.6.21",
-    "aws-sdk-mock": "2.0.0",
+    "aws-sdk-mock": "3.0.0",
     "coveralls": "3.0.1",
     "husky": "0.14.3",
     "jest": "23.1.0",
