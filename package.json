@@ -64,7 +64,7 @@
     "@commitlint/config-conventional": "7.0.1",
     "@types/aws-lambda": "8.10.6",
     "@types/jest": "23.1.0",
-    "@types/node": "9.6.21",
+    "@types/node": "9.6.22",
     "aws-sdk-mock": "3.0.0",
     "coveralls": "3.0.1",
     "husky": "0.14.3",
