@@ -76,7 +76,7 @@
     "rollup": "0.62.0",
     "rollup-plugin-hashbang": "1.0.1",
     "rollup-plugin-node-resolve": "3.3.0",
-    "semantic-release": "15.6.3",
+    "semantic-release": "15.7.0",
     "ts-jest": "23.0.0",
     "tslint": "5.10.0",
     "tslint-functional-preset": "1.2.0",
