@@ -37,6 +37,14 @@ describe('lib', () => {
     )
 
     expect(result).toEqual(mockArrayOfEncryptedValues)
+
+    // Tests the ReadonlyArray<string> overload
+    const [zero, one, two, three] = result
+
+    expect(zero).toEqual(mockArrayOfEncryptedValues[0])
+    expect(one).toEqual(mockArrayOfEncryptedValues[1])
+    expect(two).toEqual(mockArrayOfEncryptedValues[2])
+    expect(three).toEqual(mockArrayOfEncryptedValues[3])
   })
 
   it('should decrypt an encrypted string', async () => {
@@ -49,10 +57,17 @@ describe('lib', () => {
     const result = await decrypt(mockArrayOfEncryptedValues)
 
     expect(result).toEqual(mockArrayOfDecryptedValues)
+
+    // Tests the ReadonlyArray<string> overload
+    const [zero, one, two, three] = result
+
+    expect(zero).toEqual(mockArrayOfDecryptedValues[0])
+    expect(one).toEqual(mockArrayOfDecryptedValues[1])
+    expect(two).toEqual(mockArrayOfDecryptedValues[2])
+    expect(three).toEqual(mockArrayOfDecryptedValues[3])
   })
 
   it('should be able to handle empty or undefined parameters', async () => {
-    // @ts-ignore
     expect(await decrypt(undefined)).toBe(undefined)
     expect(await decrypt('')).toBe('')
   })
