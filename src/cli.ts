@@ -8,8 +8,8 @@ const COLUMNS = process.stdout.columns || 32
 
 const askQuestion = (
   question: string,
-  prompt: string = '→',
-  sensitive: boolean = false,
+  prompt = '→',
+  sensitive = false,
 ): Promise<string> => {
   const line = readline.createInterface({
     input: process.stdin,
@@ -24,7 +24,7 @@ const askQuestion = (
         (sensitive
           ? !readline.moveCursor(process.stdin, 0, -1) &&
             !readline.clearLine(process.stdin, 0) &&
-            !console.log(prompt + '  ' + '*'.repeat(answer.length))
+            !console.log(`${prompt}  ${'*'.repeat(answer.length)}`)
           : true) &&
         resolve(answer.trim()),
     ),
