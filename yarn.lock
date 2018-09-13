@@ -328,9 +328,9 @@
   dependencies:
     samsam "1.3.0"
 
-"@types/aws-lambda@8.10.11":
-  version "8.10.11"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.11.tgz#2c51a7dacb1abf880d35778aca68ed1075d0b300"
+"@types/aws-lambda@8.10.12":
+  version "8.10.12"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.12.tgz#9d348d25b4df3e429441df26c244ddae9318e367"
 
 "@types/estree@0.0.39":
   version "0.0.39"
