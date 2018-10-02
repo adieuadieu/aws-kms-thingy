@@ -633,9 +633,9 @@ atob@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.0.tgz#ab2b150e51d7b122b9efc8d7340c06b6c41076bc"
 
-aws-sdk-mock@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk-mock/-/aws-sdk-mock-4.1.0.tgz#e156de7010640f0a399072c852146fbfea9ad4aa"
+aws-sdk-mock@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk-mock/-/aws-sdk-mock-4.2.0.tgz#6f2b426dce47837fb2d825f5b6c1d1ba77a52a92"
   dependencies:
     aws-sdk "^2.260.1"
     sinon "^6.0.0"
