@@ -5889,9 +5889,9 @@ rollup-plugin-node-resolve@3.4.0:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
-rollup@0.67.2:
-  version "0.67.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.2.tgz#eb6be4147f448d88c388231391bacd54531b7fb7"
+rollup@0.67.3:
+  version "0.67.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.3.tgz#55475b1b62c43220c3b4bd7edc5846233932f50b"
   dependencies:
     "@types/estree" "0.0.39"
     "@types/node" "*"
