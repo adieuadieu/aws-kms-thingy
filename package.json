@@ -75,7 +75,7 @@
     "prettier": "1.15.3",
     "rollup": "0.67.4",
     "rollup-plugin-hashbang": "1.0.1",
-    "rollup-plugin-node-resolve": "3.4.0",
+    "rollup-plugin-node-resolve": "4.2.4",
     "semantic-release": "15.12.4",
     "ts-jest": "23.10.5",
     "tslint": "5.11.0",
