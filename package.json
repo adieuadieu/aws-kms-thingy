@@ -73,7 +73,7 @@
     "nsp": "3.2.1",
     "nyc": "13.0.1",
     "prettier": "1.15.3",
-    "rollup": "0.67.4",
+    "rollup": "1.31.1",
     "rollup-plugin-hashbang": "1.0.1",
     "rollup-plugin-node-resolve": "3.4.0",
     "semantic-release": "15.12.4",
