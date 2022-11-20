@@ -72,7 +72,7 @@
     "lint-staged": "8.1.0",
     "nsp": "3.2.1",
     "nyc": "13.0.1",
-    "prettier": "1.15.3",
+    "prettier": "1.19.1",
     "rollup": "0.67.4",
     "rollup-plugin-hashbang": "1.0.1",
     "rollup-plugin-node-resolve": "3.4.0",
